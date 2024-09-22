@@ -10,14 +10,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    steps:  # Add this line to define the steps
+    steps:  # Define the steps under this section
     - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'
+        python-version: '3.9'  # Specify your Python version here
 
     - name: Install dependencies
       run: |
