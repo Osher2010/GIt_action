@@ -1,6 +1,6 @@
 name: Python Test
 
-on: 
+on:
   push:
     branches:
       - main
@@ -10,7 +10,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:  # Add this line to define the steps
     - name: Checkout repository
       uses: actions/checkout@v2
 
