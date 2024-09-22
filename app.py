@@ -10,7 +10,7 @@ def guessing_game():
             user_guess = int(input("Guess a number between 1 and 100: "))
             attempts += 1
 
-            if user_guess < number_to_guess;
+            if user_guess < number_to_guess:
                 print("Too low! Try again.")
             elif user_guess > number_to_guess:
                 print("Too high! Try again.")
