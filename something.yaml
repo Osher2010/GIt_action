@@ -10,8 +10,3 @@ user:
     city: Anytown
     state: CA
     zip: "12345"
-  pets:          # Error: Indentation issue
-    - type: Dog
-        name: Fido
-    - type: Cat
-      name: Whiskers
