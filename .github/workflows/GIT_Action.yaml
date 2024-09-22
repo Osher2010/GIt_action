@@ -13,26 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3  # Use the latest version only
 
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-      
-    - name: Set up Python
-      uses: actions/setup-python@v4
-
-
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
         
-    - name: Run Python tests
-      run: |
-        python -m unittest discover -s tests
+      - name: Run Python tests
+        run: |
+          python -m unittest discover -s tests
 
-    - name: Validate YAML syntax
-      run: |
-        find . -name "*.yml" -o -name "*.yaml" | xargs yamllint
-      env:
-        YAMLLINT_CONFIG_FILE: .yamllint
+      - name: Validate YAML syntax
+        run: |
+          find . -name "*.yml" -o -name "*.yaml" | xargs yamllint
+        env:
+          YAMLLINT_CONFIG_FILE: .yamllint
