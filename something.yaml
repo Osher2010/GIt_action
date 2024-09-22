@@ -1,6 +1,5 @@
-# Example of a YAML file with an error
 user:
-  neme: John Doe
+  name: John Doe
   age: 30
   hobbies:
     - reading
@@ -11,10 +10,8 @@ user:
     city: Anytown
     state: CA
     zip: "12345"
-
-# This line has a syntax error due to the wrong indentation
-  pets:
+  pets:          # Error: Indentation issue
     - type: Dog
-      name: Fido
+        name: Fido
     - type: Cat
       name: Whiskers
