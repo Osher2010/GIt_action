@@ -1,0 +1,36 @@
+---
+- name: Deploy HTML with Nginx
+  hosts: webserver
+  become: yes
+
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Install Nginx for Debian-based
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Start Nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Copy HTML file to web directory
+      ansible.builtin.copy:
+        src: /home/oshershulker/ansible/index.html
+        dest: /usr/share/nginx/html/index.html
+        mode: '0644'
+
+    - name: Ensure Nginx is running
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: true
+

@@ -1,0 +1,30 @@
+---
+- name: Install and configure Nginx
+  hosts: webservers
+  become: yes 
+  tasks:
+    - name: Ensure Nginx is installed
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes  # It's usually a good practice to update the cache
+    
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+    
+    - name: Ensure Nginx service is enabled on boot
+      service:
+        name: nginx
+        enabled: yes
+
+- name: Install Python 3
+  hosts: server
+  become: yes 
+  tasks:
+    - name: Ensure Python 3 is installed
+      apt:
+        name: python3
+        state: present
+        update_cache: yes  
